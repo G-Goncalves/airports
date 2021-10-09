@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row justify-content-between">
+    <div class="col-4 my-auto mx-auto">
+      <h1 class="my-5 text-center">{{array.data.name.original}}</h1>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th scope="row">Airport Code</th>
+            <td>{{array.data.icao}} {{array.data.iata}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Airport Name</th>
+            <td>{{array.data.name.original}}</td>
+          </tr>
+          <tr>
+            <th scope="row">City</th>
+            <td>{{array.data.city.cityOriginal}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Country</th>
+            <td>{{array.data.country.countryOriginal}}</td>
+          </tr>
+          <tr>
+            <th scope="row">UTC</th>
+            <td>{{array.data.time.utcOffsetHours}} Hours</td>
+          </tr>
+          <tr>
+            <th scope="row">Classification</th>
+            <td>{{array.data.classification}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Location</th>
+            <td>Lat: {{array.data.location.latitude}} | Long: {{array.data.location.longitude}}</td>
+          </tr>
+          <tr>
+            <th scope="row">Elevation</th>
+            <td>{{array.data.elevationFeet}} ft | {{array.data.elevationMeters}} m</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-7" id="map">
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom">
+        <agm-marker [latitude]="array.data.location.latitude" [longitude]="array.data.location.longitude">
+        </agm-marker>
+      </agm-map>
+    </div>
+  </div>
+
+</div>
